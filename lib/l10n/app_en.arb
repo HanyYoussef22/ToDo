@@ -3,5 +3,10 @@
   "done": "Done",
   "setting": "settings",
   "english": "English",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "list": "List",
+  "addTask":"Add New Task",
+  "titel":"Titel",
+  "description":"Description",
+  "select":"Select Time"
 }
