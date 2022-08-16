@@ -3,15 +3,5 @@
   "done": "تم",
   "setting": "الاعدادات",
   "english": "انجليزي",
-  "arabic": "عربي",
-  "list": "القائمه",
-  "addTask":"اضافة مهام جديدة",
-  "titel":"العنوان",
-  "description":"الوصف",
-  "description"::"تحديد الوقت"
-
-
-
-
-
-}
+    "arabic": "عربي"
+{

@@ -6,6 +6,8 @@ class HomeLayout extends StatelessWidget {
 static const String roudeName='Home';
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(child: Text(AppLocalizations.of(context)!.english,style: TextStyle(fontSize: 40),)),
+    );
   }
 }
