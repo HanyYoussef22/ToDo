@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/Layout/HomeLayout.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/shard/styles/My_Themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,14 +26,15 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English, no country code
         Locale('ar'), // Spanish, no country code
       ],
-      locale: Locale('ar'),
+      debugShowMaterialGrid: false,
+      locale: const Locale('en'),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeLayout.roudeName,
       routes: {
         HomeLayout.roudeName:(context)=>HomeLayout(),
       },
       themeMode:ThemeMode.light ,
-      // theme: ,
+      theme: MyThemeData.lightTheme,
       // darkTheme: ,
     );
   }
