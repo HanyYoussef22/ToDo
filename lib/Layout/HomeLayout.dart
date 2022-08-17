@@ -62,7 +62,18 @@ List<Widget>taps=[TasksScreen(),SettingScreen()];
   }
   OpenBottomSheetToAddTask(){
     showModalBottomSheet(context: context, builder: (context){
-      return AddTaskBottomSheet();
-    });
+     return Container(
+       child: Padding(
+
+         padding: EdgeInsets.only(
+           bottom: MediaQuery.of(context).viewInsets.bottom,
+         ),
+         child: AddTaskBottomSheet(),
+       )
+     );
+
+  },
+      isScrollControlled: true,
+  );
   }
 }

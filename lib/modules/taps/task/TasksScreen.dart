@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter_date_picker_timeline/flutter_date_picker_timeline.dart';
+import 'package:todo/modules/taps/task/taskItem.dart';
 import 'package:todo/shard/styles/clors.dart';
 
 
@@ -32,13 +33,13 @@ class TasksScreen extends StatelessWidget {
             ),
             FlutterDatePickerTimeline(
               itemHeight: 70,
-              selectedItemBackgroundColor: PrimaryColor,
+              selectedItemBackgroundColor: WhiteColor,
               // unselectedItemBackgroundColor:Colors. ,
-              unselectedItemTextStyle:TextStyle(fontWeight: FontWeight.bold,fontSize: 17),
+              unselectedItemTextStyle:TextStyle(fontWeight: FontWeight.bold,fontSize: 25),
               unselectedItemBackgroundColor:Colors.transparent,
-              selectedItemTextStyle:TextStyle(color: Colors.white,fontSize: 19),
-              selectedItemWidth: 190,
-              unselectedItemWidth:42,
+              selectedItemTextStyle:TextStyle(color: PrimaryColor,fontSize: 20),
+              selectedItemWidth: 200,
+              unselectedItemWidth:39,
               selectedItemMargin:EdgeInsets.only(left:8 ,right:8 ),
               itemRadius: 15,
               startDate: DateTime.now().subtract(Duration(days: 365)),
@@ -49,6 +50,15 @@ class TasksScreen extends StatelessWidget {
                 print('Day ${DateTime?.day}');
               },
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.builder(itemBuilder: (context,index){
+                return TaskItem();
+              },
+                itemCount: 12,),
+            )
           ],
         ),
 

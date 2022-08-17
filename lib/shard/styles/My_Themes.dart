@@ -33,17 +33,14 @@ class MyThemeData {
       elevation: 0,
       iconTheme: IconThemeData(color: WhiteColor),
     ),
-    // floatingActionButtonTheme: FloatingActionButtonThemeData(
-    //     backgroundColor: PrimaryColor
-    // ),
+
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: PrimaryColor
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: Colors.transparent
+    ),
 
-    // bottomSheetTheme: BottomSheetThemeData(
-    //   backgroundColor: Colors.transparent,
-    //
-    // ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: PrimaryColor, unselectedItemColor: GreyColor),
   );
