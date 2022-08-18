@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo/Models/task_model.dart';
 import 'package:todo/shard/styles/clors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/utils/firbase%20firestore.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   @override
@@ -10,8 +12,9 @@ class AddTaskBottomSheet extends StatefulWidget {
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var SelectData=DateTime.now();
   var formKey=GlobalKey<FormState>();
-  @override
-  Widget build(BuildContext context) {
+  String title='';
+  String desc='';
+ Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Container(
         decoration: BoxDecoration(
@@ -29,12 +32,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               ),
               Form(
                 key: formKey,
-                child: Column(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 20,
                     ),
                     TextFormField(
+                      onChanged: (titl){
+                        title=title;
+                      },
                       decoration: InputDecoration(
                         label: Text(AppLocalizations.of(context)!.titel),
                       ),
@@ -49,6 +55,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       height: 20,
                     ),
                     TextFormField(
+                      onChanged: (titl){
+                        desc=titl;
+                      },
                       minLines: 4,
                       maxLines: 4,
                       decoration: InputDecoration(
@@ -90,8 +99,14 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                       height: 40,
                     ),
                     ElevatedButton(onPressed: (){
-                      if(formKey.currentState!.validate()){
 
+                      if(formKey.currentState!.validate()){
+                       TaskModel task= TaskModel(title: title,description: desc, selectData: SelectData.microsecondsSinceEpoch);
+                        AddtaskToFirestore(task).then((value) {
+                          print('Adding Successfully');
+                        }).catchError((e){
+                          print(e);
+                        });
                       }
                     }, child:Text('add') )
 
