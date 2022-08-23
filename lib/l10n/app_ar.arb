@@ -1,6 +1,7 @@
 {
   "todolist": "المهام",
   "done": "تم",
+  "ok": "تم",
   "setting": "الاعدادات",
   "english": "انجليزي",
   "arabic": "عربي",
@@ -8,5 +9,9 @@
   "addTask":"اضافة مهام جديدة",
   "titel":"العنوان",
   "description":"الوصف",
+  "successfullyadded":"تم الاضافه بنجاح",
+  "loading":"Loading...",
+  "pleaseentertasktitle":"برجاء ادخال المهام",
+  "pleaseentertaskdescription":"برجاء ادخال الوصف",
   "select":"تحديد الوقت"
 }

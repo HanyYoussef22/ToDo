@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/modules/BottomSheets/AddTaskBottomSheet.dart';
-import 'package:todo/modules/taps/SettingScreen.dart';
+import 'package:todo/modules/taps/task/setting/SettingScreen.dart';
 import 'package:todo/modules/taps/task/TasksScreen.dart';
+import 'package:todo/shard/providers/app_provider.dart';
 
 import '../shard/styles/clors.dart';
 
@@ -16,12 +18,14 @@ static const String roudeName='Home';
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
+  var provider;
 int currentIndex=0;
 List<Widget>taps=[TasksScreen(),SettingScreen()];
   @override
   Widget build(BuildContext context) {
+     provider=Provider.of<AppProvider>(context);
     return Scaffold(
-      // backgroundColor: mainBackgroundColor,
+      backgroundColor:provider.themeMode==ThemeMode.light ? mainBackgroundColor:mainBackgroundColorDark,
 
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.todolist,
@@ -30,7 +34,7 @@ List<Widget>taps=[TasksScreen(),SettingScreen()];
       floatingActionButton: FloatingActionButton(
         shape: StadiumBorder(
           side: BorderSide(
-            color: WhiteColor,
+            color: provider.themeMode==ThemeMode.dark?SecendColor:WhiteColor,
             width: 4
           )
         ),
@@ -42,8 +46,9 @@ List<Widget>taps=[TasksScreen(),SettingScreen()];
       bottomNavigationBar: BottomAppBar(
         notchMargin: 8,
         shape: CircularNotchedRectangle(),
+        color: provider.themeMode==ThemeMode.dark?SecendColor:WhiteColor,
         child: BottomNavigationBar(
-          onTap: (index){
+            onTap: (index){
             currentIndex=index;
             setState((){});
           },backgroundColor:Colors.transparent,
@@ -63,6 +68,7 @@ List<Widget>taps=[TasksScreen(),SettingScreen()];
   OpenBottomSheetToAddTask(){
     showModalBottomSheet(context: context, builder: (context){
      return Container(
+         color: provider.themeMode==ThemeMode.dark?SecendColor:WhiteColor,
        child: Padding(
 
          padding: EdgeInsets.only(
