@@ -40,6 +40,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   calendar_timeline: ^1.0.5
   flutter_date_picker_timeline: ^0.3.3
+  dependencies:
+  firebase_core: ^1.20.1
+  cloud_firestore: ^3.4.4
 
 dev_dependencies:
   flutter_test:
