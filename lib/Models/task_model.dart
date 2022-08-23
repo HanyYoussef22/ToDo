@@ -8,7 +8,7 @@ class TaskModel{
     required this.title,
     required this.description,
    required this.selectData,
-    this.isDone=false
+  this.isDone=false
 });
   TaskModel.fromJson(Map<String,dynamic>Json):this(
     id: Json['id']! as String,
